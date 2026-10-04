@@ -61,6 +61,37 @@ def add_exercise(workout):
         "exercises": []
    }
 
+   while True:
+
+       exercise_name = input("\nEnter excercise name: ")
+       set_count = int(input("Enter amount of sets: "))
+       rep_count = int(input("Enter amount of reps per set: "))
+       lifted_weight = float(input("Enter weight lifted (lbs): "))
+
+       # Project 1 calculation
+       total_reps set_count * rep_count
+
+       exercise = {
+            "name": excercise_name,
+            "sets": set_count,
+            "reps": rep_count,
+            "weight": lifted_weight,
+            "total_reps": total_reps
+       }
+
+       # Add excercise to the workout day
+       workout["exercises"].append(exercise)
+
+       print(f"\n{exercise_name} was addded.")
+
+       # Ask user if they want to add another exercise 
+       print("\nWould you like to add another exercise? (1 = Yes, 2 - No)")
+
+       choice = int(input("Enter your choice: "))
+
+       if another == 2:
+           break
+
 # Display the menu with the available options to the user.
 def display_menu():
 
