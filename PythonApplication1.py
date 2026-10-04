@@ -35,6 +35,13 @@
 # print(f"Weight used: {lifted_weight} lbs")
 # print(f"Total reps: {total_reps}")
 
+# Crated a function for the calculation that was created in project 1
+def calculate_total_reps(set_count, rep_count):
+
+    total_reps = set_count * rep_count
+    
+    return total_reps
+
 # Function that adds a exercise inside the workout log
 def add_exercise(workouts):
 
@@ -71,7 +78,7 @@ def add_exercise(workouts):
        lifted_weight = float(input("Enter weight lifted (lbs): "))
 
        # Project 1 calculation
-       total_reps = set_count * rep_count
+       total_reps = calculate_total_reps(set_count, rep_count)
 
        exercise = {
             "name": exercise_name,
@@ -96,10 +103,11 @@ def add_exercise(workouts):
                 break
 
             elif choice == 2:
+                print("Invalid option. Please enter 1 or 2.")
                 return
                 
             else:
-                print("Invalid option. Please enter 1 or 2.")
+                print("Invalid option. Please enter either 1 or 2")
    
 
    
@@ -158,11 +166,15 @@ def delete_item(workouts):
    # Display workout names in nuumbered options
    number_workout_names(workouts)
 
-   workout_choice = int(input("\nEnter workout number: "))
+   while True:
 
-   if work_choice < 1 or workout_choice > len(workouts):
-       print("\nInvalid workout number.")
-       return
+        workout_choice = int(input("\nEnter workout number: "))
+
+       if workout_choice < 1 or workout_choice > len(workouts):
+            break
+
+       else: 
+           print("\nInvalid exercise number, enter again.")
 
    # Get the selected workout
    selected_workout = workouts[workout_choice - 1]
@@ -189,7 +201,7 @@ def delete_item(workouts):
             exercise = selected_workout["exercises"][i]
             print(f"{i + 1} - {exercise['name']}")
 
-            exercise_choice = int(input("\nEnter exercise number: "))
+       exercise_choice = int(input("\nEnter exercise number: "))
 
        # Check if the exercise choice is one of the number options displayed
        if (exercise_choice < 1 or exercise_choice > len(selected_workout["exercises"])):
@@ -245,7 +257,7 @@ def main():
             break
 
         else: 
-            print("\n Invalid option.")
+            print("\nInvalid option.")
             
 
 main()
