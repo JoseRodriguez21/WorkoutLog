@@ -35,3 +35,30 @@
 # print(f"Weight used: {lifted_weight} lbs")
 # print(f"Total reps: {total_reps}")
 
+# Display the menu with the available options to the user.
+def display_menu():
+
+   print("\n-------------------------")
+   print("   WORKOUT LOG MENU  ")
+   print("-------------------------")
+
+   print("\n1 - Add Excercise")
+   print("2 - Remove Excercise")
+   print("3 - View All Excercises")
+   print("-1 - Exit")
+
+# Main function controls the entire program 
+# This menu runs until the user input the value -1
+# The user can add, delete and view excercises
+def main(): 
+
+    workouts = []
+
+    print("Hello this is your workout log.")
+
+    while True:
+
+        display_menu()
+        break
+
+main()
