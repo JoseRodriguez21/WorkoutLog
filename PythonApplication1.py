@@ -105,6 +105,49 @@ def add_exercise(workouts):
    
    print("\nWorkout added successfully.")
 
+# Function that shows all the workout logs
+def view_workouts(workouts):
+
+   print("\n-------------------------")
+   print("      WORKOUT LOG     ")
+   print("-------------------------")
+
+   # Checl to see if there are any workouts saved
+   if len(workouts) == 0:
+       print("\nThere are no workouts saved.")
+       return
+
+   # Goes through every workout in the list
+   for workout in workouts:
+
+       print("\n--------------------")
+       print(f"Date: {workout['date']}")
+       print(f"Day: {workout['day']}")
+       print(f"Workout type: {workout['workout_type']}")
+       print("--------------------")
+
+       # Goes through every exercise inside the workout
+       for exercise in workout["exercises"]:
+
+           print(f"\nExercise: {exercise['name']}")
+           print(f"Sets: {exercise['sets']}")
+           print(f"Reps per set: {exercise['reps']}")
+           print(f"weight: {exercise['weight']} lbs")
+           print(f"Total reps: {exercise['total_reps']}")
+
+# Function that removes either the whole day or only a specific exercise
+def delete_item(workouts):
+
+   print("\n-------------------------")
+   print("      REMOVE LOG     ")
+   print("-------------------------")
+
+   # Check to see if there are any workouts saved 
+   if len(workouts) == 0:
+       print("\nThere are no workouts saved.")
+       return
+   # Display a
+
 # Display the menu with the available options to the user.
 def display_menu():
 
@@ -135,6 +178,12 @@ def main():
         if choice == 1:
             add_exercise(workouts)
         
+        elif choice == 2:
+            delete_item(workouts)
+
+        elif choice == 3:
+            view_workouts(workouts)
+
         elif choice == -1:
             break
 
