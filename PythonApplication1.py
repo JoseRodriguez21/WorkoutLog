@@ -135,6 +135,15 @@ def view_workouts(workouts):
            print(f"weight: {exercise['weight']} lbs")
            print(f"Total reps: {exercise['total_reps']}")
 
+# Display workout names with numbers so that the user can choice when deciding which one to delete
+def display_workout_names(workouts):
+
+    print("\nChoose a workout:")
+    
+    for i in range(len(workouts)):
+        workout = workouts[i]
+        print(f"{i + 1} - {workout['date']} - {workout['day']} - {workout['workout_type']}")
+
 # Function that removes either the whole day or only a specific exercise
 def delete_item(workouts):
 
