@@ -136,7 +136,7 @@ def view_workouts(workouts):
            print(f"Total reps: {exercise['total_reps']}")
 
 # Display workout names with numbers so that the user can choice when deciding which one to delete
-def display_workout_names(workouts):
+def number_workout_names(workouts):
 
     print("\nChoose a workout:")
     
@@ -155,8 +155,56 @@ def delete_item(workouts):
    if len(workouts) == 0:
        print("\nThere are no workouts saved.")
        return
-   # Display a
+   # Display workout names in nuumbered options
+   number_workout_names(workouts)
 
+   workout_choice = int(input("\nEnter workout number: "))
+
+   if work_choice < 1 or workout_choice > len(workouts):
+       print("\nInvalid workout number.")
+       return
+
+   # Get the selected workout
+   selected_workout = workouts[workout_choice - 1]
+
+   print("\nWhat would you like to remove?")
+   print("1 - Remove the whole workout day")
+   print("2 - Remove one specific exercise")
+
+   choice = int(input("Enter your choice: "))
+
+   # Remove the entire workout
+   if choice == 1:
+
+       workouts.remove(selected_workout)
+
+       print("\nWorkout day was removed")
+
+   elif choice == 2: 
+       print("\nChoose an exercise:")
+
+       # Display all exercises in numbered options
+       for i in range(len(selected_workout["exercises"])):
+
+            exercise = selected_workout["exercises"][i]
+            print(f"{i + 1} - {exercise['name']}")
+
+            exercise_choice = int(input("\nEnter exercise number: "))
+
+       # Check if the exercise choice is one of the number options displayed
+       if (exercise_choice < 1 or exercise_choice > len(selected_workout["exercises"])):
+            print("\nInvalid exercise number.")
+            return
+
+       # Get the selected exercise
+       selected_exercise = selected_workout["exercises"][exercise_choice - 1]
+
+       # Remove the selected exercise
+       selected_workout["exercises"].remove(selected_exercise)
+       print(f"\n{selected_exercise['name']} was removed.")
+
+   else:
+       print("\nInvalid option.")
 # Display the menu with the available options to the user.
 def display_menu():
 
