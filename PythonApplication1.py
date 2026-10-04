@@ -36,7 +36,7 @@
 # print(f"Total reps: {total_reps}")
 
 # Function that adds a exercise inside the workout log
-def add_exercise(workout):
+def add_exercise(workouts):
 
    print("\n-------------------------")
    print("     ADD WORKOUT DAY   ")
@@ -51,7 +51,7 @@ def add_exercise(workout):
    date = f"{month}/{day}/{year}"
 
    workout_day = input("Enter workout day (Ex: Monday): ")
-   workout_type = input("Enter workout type (Ex: Bench Press): ")
+   workout_type = input("Enter workout type (Ex: Leg Day, Push Day): ")
 
    # Create the workout dictionary
    workout = {
@@ -61,6 +61,8 @@ def add_exercise(workout):
         "exercises": []
    }
 
+   workouts.append(workout)
+
    while True:
 
        exercise_name = input("\nEnter excercise name: ")
@@ -69,10 +71,10 @@ def add_exercise(workout):
        lifted_weight = float(input("Enter weight lifted (lbs): "))
 
        # Project 1 calculation
-       total_reps set_count * rep_count
+       total_reps = set_count * rep_count
 
        exercise = {
-            "name": excercise_name,
+            "name": exercise_name,
             "sets": set_count,
             "reps": rep_count,
             "weight": lifted_weight,
@@ -90,14 +92,16 @@ def add_exercise(workout):
 
             choice = int(input("Enter your choice: "))
 
-                if choice == 1:
-                    break
-                elif choice == 2:
-                    return
-                else:
-                    print("Invalid option. Please enter 1 or 2.")
+            if choice == 1:
+                break
+
+            elif choice == 2:
+                return
+                
+            else:
+                print("Invalid option. Please enter 1 or 2.")
    
-   workouts.append(workout)
+
    
    print("\nWorkout added successfully.")
 
@@ -129,7 +133,7 @@ def main():
         choice = int(input("\nEnter your choice: "))
 
         if choice == 1:
-            add_excercise(workouts)
+            add_exercise(workouts)
         
         elif choice == -1:
             break
