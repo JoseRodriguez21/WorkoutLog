@@ -35,6 +35,32 @@
 # print(f"Weight used: {lifted_weight} lbs")
 # print(f"Total reps: {total_reps}")
 
+# Function that adds a exercise inside the workout log
+def add_exercise(workout):
+
+   print("\n-------------------------")
+   print("     ADD WORKOUT DAY   ")
+   print("-------------------------")
+
+   # Ask for the date first month, then day and finally year
+   month = input("Enter workout month (1 - 12): ")
+   day = input("Enter workout day of the month (1 - 31): ")
+   year = input("Enter workout year: ")
+
+   # Combine all and creates the date
+   date = f"{month}/{day}/{year}"
+
+   workout_day = input("Enter workout day (Ex: Monday): ")
+   workout_type = input("Enter workout type (Ex: Bench Press): ")
+
+   # Create the workout dictionary
+   workout = {
+        "date": date,
+        "day": workout_day,
+        "workout_type": workout_type,
+        "exercises": []
+   }
+
 # Display the menu with the available options to the user.
 def display_menu():
 
