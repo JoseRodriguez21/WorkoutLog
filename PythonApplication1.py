@@ -108,10 +108,7 @@ def add_exercise(workouts):
                 
             else:
                 print("Invalid option. Please enter either 1 or 2")
-   
-
-   
-   print("\nWorkout added successfully.")
+ 
 
 # Function that shows all the workout logs
 def view_workouts(workouts):
@@ -168,10 +165,10 @@ def delete_item(workouts):
 
    while True:
 
-        workout_choice = int(input("\nEnter workout number: "))
+       workout_choice = int(input("\nEnter workout number: "))
 
-       if workout_choice < 1 or workout_choice > len(workouts):
-            break
+       if workout_choice >= 1 and workout_choice <= len(workouts):
+           break
 
        else: 
            print("\nInvalid exercise number, enter again.")
@@ -188,13 +185,13 @@ def delete_item(workouts):
 
         # Remove the entire workout
         if choice == 1:
-
+        
             workouts.remove(selected_workout)
 
             print("\nWorkout day was removed")
             break
 
-       elif choice == 2: 
+        elif choice == 2: 
             print("\nChoose an exercise:")
 
             # Display all exercises in numbered options
@@ -207,23 +204,23 @@ def delete_item(workouts):
                 exercise_choice = int(input("\nEnter exercise number: "))
 
                 # Check if the exercise choice is one of the number options displayed
-                if (exercise_choice < 1 or exercise_choice > len(selected_workout["exercises"])):
+                if (exercise_choice >= 1 and exercise_choice <= len(selected_workout["exercises"])):
                     break
 
                 else:
-                    print("\nInvalid exercise number, enter again.")
+                    print("\nInvalid workout number, enter again.")
 
-          # Get the selected exercise
-          selected_exercise = selected_workout["exercises"][exercise_choice - 1]
+            # Get the selected exercise
+            selected_exercise = selected_workout["exercises"][exercise_choice - 1]
 
-          # Remove the selected exercise
-          selected_workout["exercises"].remove(selected_exercise)
-          print(f"\n{selected_exercise['name']} was removed.")
+            # Remove the selected exercise
+            selected_workout["exercises"].remove(selected_exercise)
+            print(f"\n{selected_exercise['name']} was removed.")
 
-          break
+            break
 
-       else:
-          print("\nInvalid option. Please enter 1 or 2")
+        else:
+            print("\nInvalid option. Please enter 1 or 2")
 # Display the menu with the available options to the user.
 def display_menu():
 
