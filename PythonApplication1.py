@@ -85,12 +85,21 @@ def add_exercise(workout):
        print(f"\n{exercise_name} was addded.")
 
        # Ask user if they want to add another exercise 
-       print("\nWould you like to add another exercise? (1 = Yes, 2 - No)")
+       while True:
+            print("\nWould you like to add another exercise? (1 = Yes, 2 - No)")
 
-       choice = int(input("Enter your choice: "))
+            choice = int(input("Enter your choice: "))
 
-       if another == 2:
-           break
+                if choice == 1:
+                    break
+                elif choice == 2:
+                    return
+                else:
+                    print("Invalid option. Please enter 1 or 2.")
+   
+   workouts.append(workout)
+   
+   print("\nWorkout added successfully.")
 
 # Display the menu with the available options to the user.
 def display_menu():
@@ -116,6 +125,17 @@ def main():
     while True:
 
         display_menu()
-        break
+
+        choice = int(input("\nEnter your choice: "))
+
+        if choice == 1:
+            add_excercise(workouts)
+        
+        elif choice == -1:
+            break
+
+        else: 
+            print("\n Invalid option.")
+            
 
 main()
