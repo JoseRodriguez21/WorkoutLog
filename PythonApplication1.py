@@ -14,17 +14,11 @@
 # Total amount of  | total reps = rep count * set count| Found the amount of reps done in
 # reps per exercise|                                   | total of a certain excercise
 
-
-# Print message welcoming the user
-# print("Hello to your workout log.")
-# print("In this program you will be able to record your workouts.\n")
-
 # Asks the user for the information used in the program and calculate total reps
 # workout_name = input("Enter Workout name: ")
 # set_count = int(input("Enter amount of sets: "))
 # rep_count = int(input("Enter amount of reps(per set): "))
 # lifted_weight = float(input("Enter the weight lifted in excercise(lbs): "))
-# total_reps = set_count * rep_count
 
 # Display the amounts inputted and the calculation
 
@@ -49,7 +43,7 @@ def add_exercise(workouts):
    print("     ADD WORKOUT DAY   ")
    print("-------------------------")
 
-   # Ask for the date first month, then day and finally year
+   # Ask for the date first the month, then day and finally year
    month = input("Enter workout month (1 - 12): ")
    day = input("Enter workout day of the month (1 - 31): ")
    year = input("Enter workout year: ")
@@ -72,6 +66,7 @@ def add_exercise(workouts):
 
    while True:
 
+       # Ask the user for the exercise information
        exercise_name = input("\nEnter excercise name: ")
        set_count = int(input("Enter amount of sets: "))
        rep_count = int(input("Enter amount of reps per set: "))
@@ -98,14 +93,14 @@ def add_exercise(workouts):
             print("\nWould you like to add another exercise? (1 = Yes, 2 - No)")
 
             choice = int(input("Enter your choice: "))
-
+            # If yes the user is prompted to input all the information for a new exercise
             if choice == 1:
                 break
-
+            # If it's 2 then the function returns to the main menu
             elif choice == 2:
                 print("\nWorkout added successfully.")
                 return
-                
+            # If the user doesn't input either 1 or 2 then the while loop keeps on running    
             else:
                 print("Invalid option. Please enter either 1 or 2")
  
@@ -117,21 +112,21 @@ def view_workouts(workouts):
    print("      WORKOUT LOG     ")
    print("-------------------------")
 
-   # Checl to see if there are any workouts saved
+   # Checl to see if there are any workouts saved if not returns
    if len(workouts) == 0:
        print("\nThere are no workouts saved.")
        return
 
-   # Goes through every workout in the list
+   # For loop that goes through every workout in the list
    for workout in workouts:
 
-       print("\n--------------------")
+       print("\n-------------------------")
        print(f"Date: {workout['date']}")
        print(f"Day: {workout['day']}")
        print(f"Workout type: {workout['workout_type']}")
-       print("--------------------")
+       print("-------------------------")
 
-       # Goes through every exercise inside the workout
+       # For loop that goes through every exercise inside the workout then moves into the next one
        for exercise in workout["exercises"]:
 
            print(f"\nExercise: {exercise['name']}")
@@ -140,7 +135,7 @@ def view_workouts(workouts):
            print(f"weight: {exercise['weight']} lbs")
            print(f"Total reps: {exercise['total_reps']}")
 
-# Display workout names with numbers so that the user can choice when deciding which one to delete
+# Display workout names numbered so that the user can choice when deciding which one to delete
 def number_workout_names(workouts):
 
     print("\nChoose a workout:")
@@ -149,7 +144,7 @@ def number_workout_names(workouts):
         workout = workouts[i]
         print(f"{i + 1} - {workout['date']} - {workout['day']} - {workout['workout_type']}")
 
-# Function that removes either the whole day or only a specific exercise
+# Function that removes either the whole workout day or only a specific exercise
 def delete_item(workouts):
 
    print("\n-------------------------")
@@ -163,6 +158,7 @@ def delete_item(workouts):
    # Display workout names in nuumbered options
    number_workout_names(workouts)
 
+   # While loop that exits only if the user selects a option from the one displayed
    while True:
 
        workout_choice = int(input("\nEnter workout number: "))
@@ -176,6 +172,7 @@ def delete_item(workouts):
    # Get the selected workout
    selected_workout = workouts[workout_choice - 1]
 
+   # While loop to ask the user if they want to remove the whole workout day or only a exercise
    while True: 
         print("\nWhat would you like to remove?")
         print("1 - Remove the whole workout day")
@@ -191,6 +188,7 @@ def delete_item(workouts):
             print("\nWorkout day was removed")
             break
 
+        # Removes a specific exercise
         elif choice == 2: 
             print("\nChoose an exercise:")
 
@@ -240,7 +238,9 @@ def main():
 
     workouts = []
 
+    # Welcoming the user into the program
     print("Hello this is your workout log.")
+    print("In this program you will be able to record your workouts.\n")
 
     while True:
 
@@ -263,5 +263,5 @@ def main():
         else: 
             print("\nInvalid option.")
             
-
+# Call the main function
 main()
