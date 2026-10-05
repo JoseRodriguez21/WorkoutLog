@@ -8,6 +8,16 @@
 # Set Count       | interger      | 3
 # total reps      | interger      | 24
 # Lifted Amount   | float         | 225.5
+# Date            | string        | 10/03/2026
+# Workout Type    | string        | Chest Day
+# Workout Day     | string        | Monday 
+# Exercise name   | string        | Bench Press
+# Exercises       | List          | Squats, Bench Press, Shoulder Press
+#
+#
+#
+#
+#
 #
 # Calculation      | Formula                           | Purpose
 # --------------------------------------------------------------------------------------
@@ -236,7 +246,30 @@ def display_menu():
 # The user can add, delete and view excercises
 def main(): 
 
-    workouts = []
+    workouts = [
+        {
+            "date": "10/03/2026",
+            "day": "Monday",
+            "workout_type": "Push Day",
+            "exercises": [
+                {
+                    "name": "Bench Press",
+                    "sets": 3,
+                    "reps": 12,
+                    "weight": 225.0,
+                    "total_reps": 36
+                },
+                {
+                
+                    "name": "Chest Fly",
+                    "sets": 4,
+                    "reps": 15,
+                    "weight": 90,
+                    "total_reps": 60
+                }
+            ]
+        }    
+    ]
 
     # Welcoming the user into the program
     print("Hello this is your workout log.")
